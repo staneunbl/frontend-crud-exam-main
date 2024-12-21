@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {NavLink as Link} from 'react-router-dom';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 import {
 	Collapse,
 	Navbar,
@@ -15,51 +17,30 @@ import {
 	NavbarText,
 } from 'reactstrap';
 
+import styles from './Page.module.scss';
+
 function PageNav() {
 	const [isOpen, setIsOpen] = useState(false);
 	const toggle = () => setIsOpen(!isOpen);
 
 	return (
-		<Navbar color='light' light expand='md'>
-			<NavbarBrand tag={Link} to='/'>
+		<Navbar light expand='md' className={styles.customNavbar}>
+			<NavbarBrand tag={Link} to='/' className={styles.customNavbarBrand}>
 				Admin
 			</NavbarBrand>
 			<NavbarToggler onClick={toggle} />
 			<Collapse isOpen={isOpen} navbar>
-				<Nav className='mr-auto' navbar>
-					<NavItem>
-						<NavLink tag={Link} to='/users'>
+				<Nav className='ms-auto' navbar>
+					<NavItem className={styles.navItemRight}>
+						<NavLink tag={Link} to='/users' className={styles.navLink}>
 							Users
-						</NavLink>
-					</NavItem>
-					<NavItem>
-						<NavLink tag={Link} to='/features'>
-							Features
-						</NavLink>
-					</NavItem>
-					<NavItem>
-						<NavLink tag={Link} to='/pricing'>
-							Pricing
-						</NavLink>
-					</NavItem>
-					<NavItem>
-						<NavLink tag={Link} to='/disabled' disabled>
-							Disabled
-						</NavLink>
-					</NavItem>
-					<UncontrolledDropdown nav inNavbar>
-						<DropdownToggle nav caret>
-							Options
-						</DropdownToggle>
-						<DropdownMenu>
-							<DropdownItem>Option 1</DropdownItem>
-							<DropdownItem>Option 2</DropdownItem>
-							<DropdownItem divider />
-							<DropdownItem>Reset</DropdownItem>
-						</DropdownMenu>
-					</UncontrolledDropdown>
+						</NavLink>	
+					</NavItem>	
 				</Nav>
-				<NavbarText>Simple Text</NavbarText>
+				<NavbarText className={styles.leftbutton}>
+					<i className="bi bi-person" style={{ marginRight: '8px' }}></i> {/* Person icon */}
+					MADE BY SHAY MARASIGAN
+				</NavbarText>
 			</Collapse>
 		</Navbar>
 	);

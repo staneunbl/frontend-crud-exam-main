@@ -16,7 +16,7 @@ function App() {
 						</Route>
 						<Route path='/users'>
 							<Users />
-						</Route>
+						</Route>	
 						<Route path='*'>404</Route>
 					</Switch>
 				</Page>

@@ -7,6 +7,8 @@ import PageNav from './PageNav';
 function Page(props) {
 	const {children} = props;
 
+	console.log(children);;
+
 	return (
 		<div className={styles['page']}>
 			<PageNav />
@@ -17,3 +19,4 @@ function Page(props) {
 }
 
 export default Page;
+	
